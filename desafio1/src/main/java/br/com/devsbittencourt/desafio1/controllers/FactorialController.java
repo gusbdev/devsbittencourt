@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class FactorialController {
 
     @RequestMapping(path = "/factorial/{num}", method = RequestMethod.GET)
-    public int factorialController(@PathVariable int num){
+    public String factorialController(@PathVariable int num){
         int fat = 1;
         for(int i = 1; i <= num; i++){
             fat *= i;
         }
         
-        return fat;
+        return "O fatorial de " + num + " é " + fat;
     }
 }
