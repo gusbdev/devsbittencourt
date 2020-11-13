@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MatrizController {
+public class MatrixController {
     private int sum = 0;
 
     @RequestMapping(path = "/matriz/{value1}/{value2}", method = RequestMethod.GET)
     @ResponseBody
-    public int matriz(@PathVariable int value1, @PathVariable int value2){
+    public String matrix(@PathVariable int value1, @PathVariable int value2){
         int[][] matriz = new int[value1][value2]; 
         Random rnd = new Random(); //Alimenta a matriz com valores aleatórios 
         for (int i = 0; i<value1; i++) { 
@@ -30,6 +30,6 @@ public class MatrizController {
             }
         } 
         
-        return sum;
+        return "A soma dos valores da matriz "+value1+"x"+value2+" é "+sum;
     }
 }
